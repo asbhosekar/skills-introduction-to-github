@@ -5,7 +5,7 @@ This script performs basic EDA on sample data with performance optimizations.
 
 import pandas as pd
 import numpy as np
-from typing import Dict, List
+from typing import Dict
 
 
 def generate_sample_data(n_rows: int = 100000) -> pd.DataFrame:
@@ -67,6 +67,8 @@ def create_derived_features(df: pd.DataFrame) -> pd.DataFrame:
     Create derived features efficiently.
     
     Performance optimization: Use vectorized operations.
+    Note: Returns a copy to avoid modifying the original DataFrame.
+    For very large datasets, consider using inplace operations to save memory.
     """
     df = df.copy()
     
